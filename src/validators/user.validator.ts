@@ -77,7 +77,7 @@ export const createUserValidator = checkSchema({
         in: ["body"],
         custom: {
           options: (value, { req }) => {
-            if (req.body.role === 'client' && !value) {
+            if (req.body.role === 'customer' && !value) {
               throw new Error('Cell phone number cannot be null');
             }
             return true;
@@ -92,8 +92,8 @@ export const createUserValidator = checkSchema({
               if (!value) {
                 throw new Error('Appointment cannot be null for sellers');
               }
-              if (!['cashier', 'waiter'].includes(value)) {
-                throw new Error("Appointment must be either 'cashier' or 'waiter'");
+              if (!['cashier'].includes(value)) {
+                throw new Error("Appointment must be 'cashier'");
               }
             }
             if (req.body.role === 'administrative') {
@@ -108,7 +108,7 @@ export const createUserValidator = checkSchema({
           },
         },
     },
-}, ["body"]);
+}, ['body']);
 
 export const getUserValidator = checkSchema({
     identification: {
@@ -117,7 +117,7 @@ export const getUserValidator = checkSchema({
             errorMessage: 'The identification number must be a number'
         }
     }
-}, ["body"]);
+}, ['body']);
 
 export const deleteUserValidator = checkSchema({
     identification: {
@@ -126,7 +126,7 @@ export const deleteUserValidator = checkSchema({
             errorMessage: 'The identification number must be a number'
         }
     }
-}, ["body"]);
+}, ['body']);
 
 export const modifyUserValidator = checkSchema({
     
@@ -195,4 +195,4 @@ export const modifyUserValidator = checkSchema({
         }
     }
     
-}, ["body"]);
+}, ['body']);

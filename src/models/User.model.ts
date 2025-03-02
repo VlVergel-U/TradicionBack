@@ -87,6 +87,8 @@ class User extends Model {
         }
     })
     role: string;
+    customer: boolean;
+    seller: any;
 
 }
 

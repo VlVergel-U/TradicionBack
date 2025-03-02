@@ -17,7 +17,7 @@ class Category_product extends Model {
         type: DataType.STRING,
         allowNull: false,
         validate: {
-            isIn: [['cold drinks', 'hot drinks', 'salty food', 'sweet food', 'desserts']]
+            isIn: [['furniture', 'kitchenware', 'bedding', 'storage', 'decoration']]
         }
     })
     name: string;

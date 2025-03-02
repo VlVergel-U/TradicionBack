@@ -49,6 +49,7 @@ export default class Server {
     private middleware() {
         this.server.use(cors())
         this.server.use(express.json());
+        this.server.use(express.urlencoded({extended:true}))
         this.server.use(this.handlerRoutes.bind(this));
         this.server.use(ValidateRoutes)
     }

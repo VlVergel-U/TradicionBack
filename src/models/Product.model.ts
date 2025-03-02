@@ -51,9 +51,9 @@ class Product extends Model {
     stock: number;
 
     @Column({
-        type: DataType.BLOB
+        type: DataType.STRING
     })
-    img: Buffer;
+    img: String;
 
 }
 

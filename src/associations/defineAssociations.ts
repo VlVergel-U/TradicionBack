@@ -5,6 +5,8 @@ import Receipt_voucher from "../models/Receipt_voucher.model";
 import Order_details from "../models/Order_details.model";
 import Product from "../models/Product.model";
 import Category_product from "../models/Category_product.model";
+import Administrative from "../models/Administrative.model";
+import User from "../models/User.model";
 
 function defineAssociations() {
 
@@ -56,7 +58,12 @@ function defineAssociations() {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
     });
-    
+
+    Product.hasMany(Order_details,{
+        foreignKey: 'productId',
+        as: 'orderDetails'
+    })
+
 }
 
 export default defineAssociations;

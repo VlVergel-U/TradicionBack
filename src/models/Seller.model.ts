@@ -11,7 +11,7 @@ class Seller extends User {
         allowNull: false,
         validate: {
             notEmpty: true,
-            isIn: [['cashier', 'waiter']]
+            isIn: [['cashier']]
         }
     })
     appointment: string;

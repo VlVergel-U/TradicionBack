@@ -19,7 +19,7 @@ const createAdmin = async () => {
         const adminExists = await Administrative.findOne({ where: { email: admin.identification } });
 
         if (adminExists) {
-            console.log('Admin already exists');
+            console.log('Admin exists');
             return;
         }
 

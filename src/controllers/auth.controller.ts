@@ -48,8 +48,9 @@ export const login = async (req: Request, res: Response): Promise<any> => {
         return res.status(200).json({ token });
 
     } catch (error) {
-
-        res.status(500).json({ message: "Error logging in" });
+        if (!res.headersSent) {
+            return res.status(500).json({ message: "Error logging in" });
+        }
     }
 };
 
@@ -90,10 +91,11 @@ export const register = async (req: Request, res: Response): Promise<any> => {
                    address, cell_phone_number });
 
 
-        return res.status(201).json({ user: user });
+        return res.status(200).json({ user: user });
 
     } catch (error) {
-
-        res.status(500).json({ message: "Error creating user" });
+        if (!res.headersSent) {
+            return res.status(500).json({ message: "Error creating user" });
+        }
     }
 };

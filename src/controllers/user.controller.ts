@@ -61,11 +61,12 @@ export const createUser = async (req: Request, res: Response): Promise<any> => {
             return res.status(400).json({ message: "Invalid role" });
         }
 
-        return res.status(201).json({ user: user });
+        return res.status(200).json({ user: user });
 
     } catch (error) {
-
-        res.status(500).json({ message: "Error creating user" });
+        if (!res.headersSent) {
+            return res.status(500).json({ message: "Error creating user" });
+        }
     }
 };
 
@@ -85,8 +86,9 @@ export const getAllUsers = async (req: Request, res: Response): Promise<any> => 
         return res.status(200).json({ users });
 
     } catch (error) {
-
-        res.status(500).json({ message: "Failed to get users" });
+        if (!res.headersSent) {
+            return res.status(500).json({ message: "Failed to get users" });
+        }
     }
 };
 
@@ -117,32 +119,12 @@ export const getUser  = async (req: Request, res: Response): Promise<any> => {
         return res.status(404).json({ message: "User  not found" });
 
     } catch (error) {
-
-        res.status(500).json({ message: "Error getting user" });
+        if (!res.headersSent) {
+            return res.status(500).json({ message: "Error getting user" });
+        }
 
     }
 };
-
-export const getUserByEmail = async (email: string): Promise<Customer | Seller | Administrative | null> => {
-    try {
-        let user: Customer | Seller | Administrative | null = null;
-
-        user = await Customer.findOne({ where: { email } });
-        if (user) return user;
-
-        user = await Seller.findOne({ where: { email} });
-        if (user) return user;
-
-        user = await Administrative.findOne({ where: { email } });
-        if (user) return user;
-
-        return null;
-    } catch (error) {
-        console.error("Error getting user:", error);
-        throw new Error("Database error");
-    }
-};
-
 
 export const modifyUser = async (req: Request, res: Response): Promise<any> => {
 
@@ -200,7 +182,8 @@ export const modifyUser = async (req: Request, res: Response): Promise<any> => {
         return res.status(200).json({ message: "Updated user" });
 
     } catch (error) {
-
-        res.status(500).json({ message: "Error updating user" });
+        if (!res.headersSent) {
+         return res.status(500).json({ message: "Error updating user" });
+        }
     }
 };

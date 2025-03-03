@@ -1,12 +1,7 @@
 import { Sequelize } from "sequelize-typescript";
 import config from "./config";
 
-const db = new Sequelize({
-    database: config.dbConfig.database,
-    username: config.dbConfig.user,
-    password: config.dbConfig.password,
-    host: config.dbConfig.host,
-    port: parseInt(config.dbConfig.port, 10),
+const db = new Sequelize(config.dbConfig.url, {
     dialect: 'mysql',
     models: [__dirname + '/../models/**/*.ts']
 });

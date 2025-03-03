@@ -2,7 +2,6 @@ import bcrypt from "bcryptjs";
 import Administrative from "../models/Administrative.model";
 
 const createAdmin = async () => {
-
     const admin = {
         first_name: "Valentina",
         second_name: "",
@@ -15,8 +14,7 @@ const createAdmin = async () => {
     };
 
     try {
-       
-        const adminExists = await Administrative.findOne({ where: { email: admin.identification } });
+        const adminExists = await Administrative.findOne({ where: { email: admin.email } });
 
         if (adminExists) {
             console.log('Admin exists');

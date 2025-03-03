@@ -9,10 +9,20 @@ import { Sequelize } from "sequelize";
 
 
 export const createOrder = async (req: Request, res: Response): Promise<any> => {
+
     try {
         const{emailUser, subtotalAllProducts, products} =req.body
 
         let user = await Customer.findOne({ where: { email:emailUser } });
+
+        for (const product of products) {
+
+            const dbProduct = await Product.findOne({ where: { id: product.idProduct } });
+
+            if (!dbProduct || dbProduct.stock == 0) {
+                return res.status(400).json({ success: false, message: `This product is not available ${dbProduct?.name || 'Product not found'}` });
+            }
+        }
 
         const newOrder = await Order.create({
             total_price:subtotalAllProducts,
@@ -31,12 +41,15 @@ export const createOrder = async (req: Request, res: Response): Promise<any> => 
         
         await Order_details.bulkCreate(orderDetails);
 
-        for (const product of products) {
-            await Product.update(
-                { stock: Sequelize.literal(`stock - ${product.quantity}`) },
-                { where: { id: product.idProduct } }
-            );
-        }
+
+        //this part of code is functional if your business is for example a supermarket
+
+        // for (const product of products) {
+        //     await Product.update(
+        //         { stock: Sequelize.literal(`stock - ${product.quantity}`) },
+        //         { where: { id: product.idProduct } }
+        //     );
+        // }
 
         return res.status(200).json({ success: true, message: 'Order created'})
 

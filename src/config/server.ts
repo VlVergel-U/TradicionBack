@@ -25,7 +25,7 @@ export default class Server {
             await db.authenticate();
             await db.query('SET FOREIGN_KEY_CHECKS = 0');
             defineAssociations();
-            await db.sync({ force: true }).then(() => {
+            await db.sync({ force: true}).then(() => {
                 console.log(colors.cyan.bold('Tables and database were created'));
             });
             await createAdmin();

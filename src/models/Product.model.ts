@@ -45,7 +45,8 @@ class Product extends Model {
     @Column({
         type: DataType.INTEGER,
         validate: {
-            min: 0
+            min: 0,
+            max: 1 //you can change this value
         }
     })
     stock: number;

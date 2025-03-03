@@ -151,6 +151,17 @@ export const getProductValidator = checkSchema({
     },
 }, ['params']);
 
+export const outStockProductValidator = checkSchema({
+    id: {
+        notEmpty: {
+            errorMessage: 'ID cannot be empty',
+        },
+        isUUID: {
+            errorMessage: 'ID must be a valid',
+        },
+    },
+}, ['params']);
+
 export const deleteProductValidator = checkSchema({
     id: {
         notEmpty: {

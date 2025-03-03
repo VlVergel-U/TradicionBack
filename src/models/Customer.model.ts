@@ -11,7 +11,7 @@ class Customer extends User {
         allowNull: false,
         validate: {
             notEmpty: true,
-            isIn: [['cash payment', 'card']]
+            isIn: [['cash_payment', 'card']]
         }
     })
     payment_method: string;

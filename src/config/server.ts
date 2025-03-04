@@ -15,9 +15,6 @@ export default class Server {
 
     constructor() {
         this.server = express();
-        this.connectionDatabase();
-        this.middleware();
-        this.routes();
     }
 
     private async connectionDatabase() {
@@ -47,11 +44,13 @@ export default class Server {
     }
 
     private middleware() {
-        this.server.use(cors())
+        this.server.use(
+            cors({origin:[config.url_cors], credentials:true})
+        );
         this.server.use(express.json());
         this.server.use(express.urlencoded({extended:true}))
-        this.server.use(this.handlerRoutes.bind(this));
         this.server.use(ValidateRoutes)
+        this.server.use(this.handlerRoutes.bind(this));
     }
 
     private routes() {
@@ -61,6 +60,9 @@ export default class Server {
 
     async run() {
         const port = config.port;
+        await this.connectionDatabase();
+        this.middleware();
+        this.routes();
         this.server.listen(port, () => {
             console.log(colors.magenta.bold(`Started at the port ${port}`));
         });

@@ -7,7 +7,7 @@ import { handleToken } from "../middelwares/requestToken.middelware";
 const productRouter = Router()
 
 productRouter.post('/product', handleErrors(createProductValidator), handleToken(['seller', 'administrative']), createProduct )
-productRouter.get('/productUnique/:id', handleErrors(getProductValidator), getProduct)
+productRouter.get('/productUnique/:name', handleErrors(getProductValidator), getProduct)
 productRouter.get('/product', getAllProducts )
 productRouter.put('/product/:id', handleErrors(modifyProductValidator), handleToken(['seller', 'administrative']), modifyProduct )
 productRouter.delete('/product/:id', handleErrors(deleteProductValidator),handleToken(['seller', 'administrative']), deleteProduct)

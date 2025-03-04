@@ -141,13 +141,10 @@ export const modifyProductValidator = checkSchema({
 }, ['body', 'params']);
 
 export const getProductValidator = checkSchema({
-    id: {
+    name: {
         notEmpty: {
-            errorMessage: 'ID cannot be empty',
-        },
-        isUUID: {
-            errorMessage: 'ID must be a valid',
-        },
+            errorMessage: 'Name cannot be empty',
+        }
     },
 }, ['params']);
 

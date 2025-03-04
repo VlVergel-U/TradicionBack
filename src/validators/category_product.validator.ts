@@ -9,7 +9,7 @@ export const createCategoryProductValidator = checkSchema({
             errorMessage: 'Name must be a string',
         },
         isIn: {
-            options: [['furniture', 'kitchenware', 'bedding', 'storage', 'decoration']],
+            options: [['cold drinks', 'hot drinks', 'salty food', 'sweet food', 'desserts']],
             errorMessage: 'Invalid category name',
         },
     },

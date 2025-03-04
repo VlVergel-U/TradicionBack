@@ -47,43 +47,7 @@ export const createUserValidator = checkSchema({
             errorMessage: 'Role must be one of administrative, seller, customer'
         }
     },
-    payment_method: {
-        in: ["body"],
-        custom: {
-          options: (value, { req }) => {
-            if (req.body.role === 'client' && !value) {
-              throw new Error('Payment method cannot be null');
-            }
-            return true;
-          },
-        },
-        isIn: {
-          options: [['cash_payment', 'card']],
-          errorMessage: "Payment method must be either 'cash_payment' or 'card'",
-        },
-      },
-      address: {
-        in: ["body"],
-        custom: {
-          options: (value, { req }) => {
-            if (req.body.role === 'client' && !value) {
-              throw new Error('Address cannot be null');
-            }
-            return true;
-          },
-        },
-      },
-      cell_phone_number: {
-        in: ["body"],
-        custom: {
-          options: (value, { req }) => {
-            if (req.body.role === 'customer' && !value) {
-              throw new Error('Cell phone number cannot be null');
-            }
-            return true;
-          },
-        },
-    },
+
     appointment: {
         in: ["body"],
         custom: {

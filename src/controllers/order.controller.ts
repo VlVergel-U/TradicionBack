@@ -69,9 +69,9 @@ export const createOrder = async (req: Request, res: Response): Promise<any> => 
 
 export const getOrder = async (req: Request, res: Response): Promise<any> => {
     try {
-        const { emailUser } = req.params;
-        console.log(emailUser)
-        const user = await Customer.findOne({ where: { email:emailUser } });
+        const {decode}:any = req
+
+        const user = await Customer.findOne({ where: { email:decode.email } });
 
         if (!user) {
             return res.status(404).json({ message: 'Customer not found' });

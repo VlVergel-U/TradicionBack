@@ -42,6 +42,7 @@ export const handleToken = (allowedRoles: string[] = []) => {
             }
         }
         
+        req["decode"] = decode
         next();
     });
 };

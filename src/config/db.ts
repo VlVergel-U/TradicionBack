@@ -12,7 +12,8 @@ import User from "../models/User.model";
 
 const db = new Sequelize(config.dbConfig.url, {
     dialect: 'mysql',
-    models: [Order, Customer, Seller, Receipt_voucher, Order_details, Product, Category_product, Administrative, User]
+    models: [Order, Customer, Seller, Receipt_voucher, Order_details, Product, Category_product, Administrative, User],
+    logging:false
 });
 
 export default db;

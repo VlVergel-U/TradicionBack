@@ -46,7 +46,7 @@ export default class Server {
     private middleware() {
         console.log(config)
         this.server.use(
-            cors({origin:config.url_cors})
+            cors({origin:[config.url_cors, "http://localhost:5173"]})
         );
         this.server.use(express.json());
         this.server.use(express.urlencoded({extended:true}))
@@ -61,8 +61,8 @@ export default class Server {
 
     async run() {
         const port = config.port;
-        await this.connectionDatabase();
         this.middleware();
+        await this.connectionDatabase();
         this.routes();
         this.server.listen(port, () => {
             console.log(colors.magenta.bold(`Started at the port ${port}`));

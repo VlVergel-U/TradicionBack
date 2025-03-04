@@ -46,7 +46,7 @@ export default class Server {
     private middleware() {
         console.log(config)
         this.server.use(
-            cors({origin:["https://tradicionback.up.railway.app", "http://localhost:5173"]})
+            cors({origin:["https://tradicionback.up.railway.app","https://tradicion.netlify.app", "http://localhost:5173"]})
         );
         this.server.use(express.json());
         this.server.use(express.urlencoded({extended:true}))

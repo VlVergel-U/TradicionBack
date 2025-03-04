@@ -90,6 +90,10 @@ export const getOrder = async (req: Request, res: Response): Promise<any> => {
                         },
                     ],
                 },
+                {
+                    model: Customer,
+                    as: "customer",
+                },
             ],
         });
 

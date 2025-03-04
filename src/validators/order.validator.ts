@@ -39,6 +39,9 @@ export const getOrderValidator = checkSchema({
         isEmail: {
             errorMessage: 'Invalid email format',
         },
+        notEmpty:{
+            errorMessage: 'Email cannot be empty'
+        },
         normalizeEmail: true,
     },
 }, ["body"]);

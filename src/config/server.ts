@@ -44,6 +44,7 @@ export default class Server {
     }
 
     private middleware() {
+        console.log(config)
         this.server.use(
             cors({origin:config.url_cors})
         );

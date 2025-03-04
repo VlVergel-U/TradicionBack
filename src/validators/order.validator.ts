@@ -44,7 +44,7 @@ export const getOrderValidator = checkSchema({
         },
         normalizeEmail: true,
     },
-}, ["body"]);
+}, ["params"]);
 
 
 export const changeStatusValidator = checkSchema({

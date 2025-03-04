@@ -7,7 +7,7 @@ import { createOrderValidator, getOrderValidator, changeStatusValidator } from "
 const orderRouter = Router()
 
 orderRouter.post('/order', handleErrors(createOrderValidator), handleToken(['customer', 'administrative']), createOrder )
-orderRouter.get('/orderUnique', handleErrors(getOrderValidator), handleToken(['customer', 'administrative', 'seller']), getOrder)
+orderRouter.get('/orderUnique/:emailUser', handleErrors(getOrderValidator), handleToken(['customer', 'administrative', 'seller']), getOrder)
 orderRouter.get('/order', handleToken(['customer', 'administrative', 'seller']), getAllOrders )
 orderRouter.put('/orderChangeStatus', handleErrors(changeStatusValidator), handleToken(['seller','administrative']), changeStatus)
 

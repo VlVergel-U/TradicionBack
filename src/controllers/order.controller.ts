@@ -69,8 +69,8 @@ export const createOrder = async (req: Request, res: Response): Promise<any> => 
 
 export const getOrder = async (req: Request, res: Response): Promise<any> => {
     try {
-        const { emailUser } = req.body;
-
+        const { emailUser } = req.params;
+        console.log(emailUser)
         const user = await Customer.findOne({ where: { email:emailUser } });
 
         if (!user) {

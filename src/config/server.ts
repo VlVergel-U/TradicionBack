@@ -45,7 +45,7 @@ export default class Server {
 
     private middleware() {
         this.server.use(
-            cors({origin:[config.url_cors], credentials:true})
+            cors({origin:[config.url_cors, "http://localhost:5173"]})
         );
         this.server.use(express.json());
         this.server.use(express.urlencoded({extended:true}))

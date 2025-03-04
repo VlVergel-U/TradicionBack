@@ -45,7 +45,7 @@ export const login = async (req: Request, res: Response): Promise<any> => {
         }, config.jwt_hash, {expiresIn: '1h'});
     
 
-        return res.status(200).json({ token });
+        return res.status(200).json({ token, role: user.role });
 
     } catch (error) {
         if (!res.headersSent) {

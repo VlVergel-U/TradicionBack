@@ -8,7 +8,7 @@ const orderRouter = Router()
 
 orderRouter.post('/order', handleErrors(createOrderValidator), handleToken(['customer', 'administrative']), createOrder )
 orderRouter.get('/orderUnique/:id', handleErrors(getOrderValidator), handleToken(['customer', 'administrative', 'seller']), getOrder)
-orderRouter.get('/order', getAllOrders, handleToken(['customer', 'administrative', 'seller']) )
+orderRouter.get('/order', handleToken(['customer', 'administrative', 'seller']), getAllOrders )
 orderRouter.put('/order/:id', handleErrors(changeStatusValidator), handleToken(['seller','administrative']), changeStatus)
 
 export default orderRouter

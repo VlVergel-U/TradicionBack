@@ -13,12 +13,18 @@ export const createOrder = async (req: Request, res: Response): Promise<any> => 
     try {
         const{emailUser, subtotalAllProducts, products} =req.body
 
-        let user = await Customer.findOne({ where: { email:emailUser } });
+        let user = await Customer.findOne({ where: { email: emailUser } });
+
+        if (!user) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
 
         for (const product of products) {
 
             const dbProduct = await Product.findOne({ where: { id: product.idProduct } });
+        console.log("MIRA AQUI"+product.idProduct)
 
+        console.log('Producto encontrado:', dbProduct);
             if (!dbProduct || dbProduct.stock == 0) {
                 return res.status(400).json({ success: false, message: `This product is not available ${dbProduct?.name || 'Product not found'}` });
             }
@@ -105,17 +111,29 @@ export const getAllOrders = async (req: Request, res: Response): Promise<any> =>
     try{
 
         const orders = await Order.findAll({
-            include:{
-                model: Order_details,
-                as: "orderDetails",
-            }
+            include: [
+                {
+                    model: Order_details,
+                    as: "orderDetails",
+                    include: [
+                        {
+                            model: Product,
+                            as: "product",
+                        },
+                    ],
+                },
+                {
+                    model: Customer,
+                    as: "customer",
+                },
+            ],
         });
 
         if (orders.length === 0) {
             return res.status(404).json({ message: 'No orders found' });
         }
 
-        return res.status(200).json({ success: true, message: 'Order created'})
+        return res.status(200).json({ success: true, orders: orders})
 
 
     } catch (error) {

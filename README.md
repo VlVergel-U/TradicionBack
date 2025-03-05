@@ -1,5 +1,8 @@
 # Mini Ecommerce Web
 
+[![GIF](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjZzbXEzMDFtbHZxMmU0azUza3hhNmxmNDZ4MW05eGh6aTZrdTltMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TKSLd3q4TFh9jKzdQX/giphy.gif)](https://giphy.com/gifs/TKSLd3q4TFh9jKzdQX)
+
+
 ## Funcionalidades Principales
 
 - **Autenticación y Registro de Usuarios**
@@ -184,18 +187,14 @@ Desarrollar un mini software web de ecommerce con un sistema de acceso, roles y 
 
 
 ### Diagrama Conceptual  
-Representa los conceptos principales del sistema y sus relaciones.
 <img src="https://github.com/VlVergel-U/TradicionBack/blob/2157b91e66d632ffa016b2b0feb1bad3fcb50ac6/images/conceptual.png" alt="Modelo Conceptual">
 
 
 ### Diagrama Lógico  
-Define las entidades y las relaciones entre ellas con más detalle.
 <img src="https://github.com/VlVergel-U/TradicionBack/blob/2157b91e66d632ffa016b2b0feb1bad3fcb50ac6/images/logico.png" alt="Modelo Conceptual">
 
 ### Modelo de Tablas  
-Muestra la estructura de las tablas en la base de datos.
 <img src="https://github.com/VlVergel-U/TradicionBack/blob/2157b91e66d632ffa016b2b0feb1bad3fcb50ac6/images/tabla.png" alt="Modelo Conceptual">
 
 ### Diagrama Físico  
-Detalla cómo se implementarán las tablas en el sistema de base de datos.
 <img src="https://github.com/VlVergel-U/TradicionBack/blob/2157b91e66d632ffa016b2b0feb1bad3fcb50ac6/images/fisico.png" alt="Modelo Conceptual">

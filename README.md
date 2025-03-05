@@ -16,6 +16,39 @@
 
 ---
 
+## Instalación y Configuración
+
+### Requisitos previos
+- Tener instalado **Node.js** y **npm**.
+- Tener una base de datos en **MySQL**.
+
+### Pasos de Instalación
+1. Clonar el repositorio:
+   ```sh
+   git clone https://github.com/VlVergel-U/TradicionBack.git
+   ```
+2. Acceder al directorio del proyecto:
+   ```sh
+   cd TradicionBack
+   ```
+3. Instalar las dependencias:
+   ```sh
+   npm install
+   ```
+4. Configurar el archivo `.env` en la raíz del proyecto:
+   ```env
+   JWT_HASH=""
+   PORT="3001"
+   URL_CORS=""
+   URL_DATABASE=""
+   ```
+5. Iniciar el servidor:
+   ```sh
+   npm run dev
+   ```
+
+---
+
 ## Endpoints de la API
 ### Autenticación
 

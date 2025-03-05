@@ -1,5 +1,5 @@
 
-<h1 align="center">Mini Ecommerce Web- Tradición (Café-Restaurante)</h1>
+<h1 align="center">API Mini Ecommerce Web- Tradición (Café-Restaurante)</h1>
 
 <p align="center">
   <img src="https://github.com/VlVergel-U/TradicionBack/blob/98af7c1da2ebfca9adf16511d347939854fd1d32/images/logo.png" alt="Logo" width="150" height="150">

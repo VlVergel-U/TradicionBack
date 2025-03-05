@@ -1,7 +1,6 @@
 # Mini Ecommerce Web
 
-[![GIF](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjZzbXEzMDFtbHZxMmU0azUza3hhNmxmNDZ4MW05eGh6aTZrdTltMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TKSLd3q4TFh9jKzdQX/giphy.gif)](https://giphy.com/gifs/TKSLd3q4TFh9jKzdQX)
-
+<img src="https://github.com/VlVergel-U/TradicionBack/blob/98af7c1da2ebfca9adf16511d347939854fd1d32/images/logo.png" alt="Logo" width="100" height="100">
 
 ## Funcionalidades Principales
 

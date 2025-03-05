@@ -9,7 +9,7 @@ export const createProduct = async (req: Request, res: Response): Promise<any> =
     try {
         const { name, description, price, stock, img, categoryName } = req.body;
 
-        const nameTrim = name.trim().toLowerCase().replace(/\s+/g, "");
+        const nameTrim = name.trim().replace(/\s+/g, "");
 
         const productExists = await Product.findOne({ where: { name: nameTrim } });
 

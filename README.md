@@ -1,39 +1,120 @@
 # Mini Ecommerce Web
 
-Funcionalidades Principales
+## Funcionalidades Principales
 
-**Autenticación y Registro de Usuarios**  
-**Gestión de Productos (CRUD)**  
-**Creación y Administración de Pedidos**  
-**Exportación de Pedidos en PDF**  
-**Roles de Usuario: Administrador, Vendedor y Cliente**  
+- **Autenticación y Registro de Usuarios**
+- **Gestión de Productos (CRUD)**
+- **Creación y Administración de Pedidos**
+- **Exportación de Pedidos en PDF**
+- **Roles de Usuario: Administrador, Vendedor y Cliente**
 
 ---
 
 ## Endpoints de la API
+### Autenticación
 
-### Autenticación  
-- `POST /auth/register` → Registro de nuevos usuarios  
-- `POST /auth/login` → Inicio de sesión  
+- ```
+  POST /auth/register
+  ```
 
-### Gestión de Usuarios  
-- `GET /api/user` → Obtener lista de usuarios  
+   → Registro de nuevos usuarios  
+- ```
+  POST /auth/login
+  ```
 
-### Gestión de Categorías  
-- `GET /api/categories` → Obtener categorías de productos  
+   → Inicio de sesión
 
-### Gestión de Productos  
-- `GET /tradicion/products` → Obtener lista de productos  
-- `POST /tradicion/products` → Crear un nuevo producto  
-- `PUT /tradicion/products/:id` → Actualizar un producto  
-- `DELETE /tradicion/products/:id` → Eliminar un producto  
+### Gestión de Usuarios
 
-### Gestión de Pedidos  
-- `GET /tradicion/order` → Obtener lista de pedidos  
-- `POST /tradicion/order` → Crear un nuevo pedido  
-- `PUT /tradicion/order/:id` → Actualizar estado del pedido  
-- `DELETE /tradicion/order/:id` → Eliminar un pedido  
-- 📄 **Exportación en PDF:** Permite generar un documento con el detalle del pedido  
+- ```
+  GET /api/user
+  ```
+
+   → Obtener todos los usuarios  
+- ```
+  POST /api/user
+  ```
+
+   → Crear un nuevo usuario  
+- ```
+  GET /api/userUnique
+  ```
+
+   → Obtener un usuario específico  
+- ```
+  PUT /api/user
+  ```
+
+   → Modificar un usuario
+
+### Gestión de Categorías
+
+- ```
+  GET /api/category
+  ```
+
+   → Obtener todas las categorías  
+- ```
+  DELETE /api/category/:name
+  ```
+
+   → Eliminar una categoría
+
+### Gestión de Productos
+
+- ```
+  GET /api/product
+  ```
+
+   → Obtener lista de productos  
+- ```
+  POST /api/product
+  ```
+
+   → Crear un nuevo producto  
+- ```
+  GET /api/productUnique/:name
+  ```
+
+   → Obtener un producto específico  
+- ```
+  PUT /api/product/:id
+  ```
+
+   → Actualizar un producto  
+- ```
+  DELETE /api/product/:id
+  ```
+
+   → Eliminar un producto  
+- ```
+  PUT /api/productStock/:id
+  ```
+
+   → Actualizar stock de un producto
+
+### Gestión de Pedidos
+
+- ```
+  GET /api/order
+  ```
+
+   → Obtener lista de pedidos  
+- ```
+  POST /api/order
+  ```
+
+   → Crear un nuevo pedido  
+- ```
+  GET /api/orderUnique
+  ```
+
+   → Obtener un pedido específico  
+- ```
+  PUT /api/orderChangeStatus
+  ```
+
+   → Cambiar estado de un pedido
 
 ## Documentación
 ## Objetivo General
@@ -98,30 +179,23 @@ Desarrollar un mini software web de ecommerce con un sistema de acceso, roles y 
 ## Supuestos
 | ID | Supuestos |
 |----|----------|
-| 1  | Se usará un sistema de almacenamiento en la nube o local para guardar imágenes y comprobantes de pago |
-| 2  | Un cliente puede ver el historial de sus pedidos desde su cuenta |
-| 3  | La autenticación será mediante correo y contraseña |
+| 1  | Un cliente puede ver el historial de sus pedidos desde su cuenta |
+| 2  | La autenticación será mediante correo y contraseña |
 
 
 ### Diagrama Conceptual  
 Representa los conceptos principales del sistema y sus relaciones.
-```md
-![Texto alternativo](./images/conceptual.png)
-```
+<img src="https://github.com/VlVergel-U/TradicionBack/blob/2157b91e66d632ffa016b2b0feb1bad3fcb50ac6/images/conceptual.png" alt="Modelo Conceptual">
+
 
 ### Diagrama Lógico  
 Define las entidades y las relaciones entre ellas con más detalle.
-```md
-![Texto alternativo](./images/logico.png)
-```
+<img src="https://github.com/VlVergel-U/TradicionBack/blob/2157b91e66d632ffa016b2b0feb1bad3fcb50ac6/images/logico.png" alt="Modelo Conceptual">
+
 ### Modelo de Tablas  
 Muestra la estructura de las tablas en la base de datos.
-```md
-![Texto alternativo](./images/tabla.png)
-```
+<img src="https://github.com/VlVergel-U/TradicionBack/blob/2157b91e66d632ffa016b2b0feb1bad3fcb50ac6/images/tabla.png" alt="Modelo Conceptual">
 
 ### Diagrama Físico  
 Detalla cómo se implementarán las tablas en el sistema de base de datos.
-```md
-![Texto alternativo](./images/fisico.png)
-```
+<img src="https://github.com/VlVergel-U/TradicionBack/blob/2157b91e66d632ffa016b2b0feb1bad3fcb50ac6/images/fisico.png" alt="Modelo Conceptual">
